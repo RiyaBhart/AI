@@ -15,9 +15,9 @@ class Environment:
     def __init__(self):
         # self.servers = [random.choice(['underloaded', 'balanced', 'overloaded']) for _ in range(5)]
         self.servers=['underloaded','overloaded','balanced','balanced','underloaded']
-        
-    def get_percept(self):
-        return self.servers
+
+    def get_percept(self,i):
+        return self.servers[i]
 
     def balance_load(self):
         overloaded = [i for i, state in enumerate(self.servers) if state == 'overloaded']
@@ -47,7 +47,7 @@ class ReflexAgent:
 def RunAgent(agent, environment, steps):
     for step in range(steps):
         print(f"\nStep {step + 1}:")
-        percept = environment.get_percept()
+        percept = environment.get_percept(step)
         agent.act(percept, environment) 
 
         print(f"Agent Position {agent.position} -> Percept: {percept}")
