@@ -1,7 +1,7 @@
 def query(x):
     return int(-1 *(x-7)**2 +49)
 
-def find_peak(N):
+def findpeak(N):
     current = N
     while True:
         if current>0:
@@ -26,5 +26,5 @@ def find_peak(N):
             current-=1
             
 N =35
-peakindex = find_peak(N)
+peakindex = findpeak(N)
 print(f"Peak found at index {peakindex} with elevation {query(peakindex)}")
